@@ -227,12 +227,12 @@
         }
 
 .post-description blockquote {
-    margin: 20px 0;
+    margin: 20px 40px;
     padding: 15px 25px;
     background: #f8f9fa;
-    border-left: 6px solid #00BFFF;
-    border-right: 6px solid #00BFFF;
-    border-radius: 33px 33px 33px 33px;
+    border-left: 2px solid #00BFFF;
+    border-right: 2px solid #00BFFF;
+    border-radius: 6px;
     color: #555;
     font-style: italic;
     line-height: 1;
@@ -524,3 +524,20 @@ a:active {
 }
 
 /* ===== 全局标签云样式 结束===== */
+
+/* 详情页面cover图片样式 */
+.cover-image-full { 
+  max-width: 768px;
+  width: auto;          /* auto 让图片显示原始宽度 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 针对小屏幕的优化 */
+@media (max-width: 768px) {
+  .cover-image-full {
+    width: 100%;        /* 小屏幕上占满容器 */
+    max-width: 100%;    /* 确保不超过屏幕宽度 */
+  }
+}
