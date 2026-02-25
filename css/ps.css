@@ -44,19 +44,6 @@
             margin-bottom: 0.25rem;
             color: #0a1c2f;
         }
-        .ps-badge {
-            background: #001e36;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
-            letter-spacing: 0.3px;
-            vertical-align: middle;
-            margin-left: 0.75rem;
-            background: linear-gradient(135deg, #011b34, #103456);
-            border: 1px solid #3079b3;
-        }
         .subhead {
             font-size: 1rem;
             color: #2b4b74;
