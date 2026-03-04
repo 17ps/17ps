@@ -331,7 +331,47 @@ a:hover {
         .imgboxup:hover { transform: translateY(-11px); }
 
 
+        .ps-c-tag-title {
+            padding: 0px 22px 0px 0px;
+            margin-top: 1px;
+            border-radius: 66px 0px 33px 0px;
+            border-left: 9px solid #FBBF24;
+            border-bottom: 2px solid #FBBF24;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
 
+        .ps-c-tag-title-left {
+            padding: 0px 0px 0px 22px; 
+            background: #4299E1; 
+            font-size: 22px; 
+            color: white;
+            border: 3px solid #fff;
+            border-radius: 66px 0px 66px 0px;
+            display: inline-flex;
+            
+        }
+
+.ps-c-tagss {
+    height: 100%;
+    align-items: center;
+    padding: 3px 26px;
+    background: #D6EDFF;
+    color: #3182CE;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 2px solid #fff;
+    border-radius: 66px 0px 66px 0px;
+}
+
+.ps-c-tagss:hover {
+    background: #4299E1;
+    border-color: #fff ;
+    color: #fff;
+}
 
 /* ===== 全局标签云样式 开始 ===== */
 
@@ -396,7 +436,6 @@ a:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 15px rgba(3, 102, 214, 0.3);
 }
-
 
 /* 标签数量徽章 */
 .ps-tags-count {
@@ -468,3 +507,4 @@ a:hover {
     max-width: 100%;    /* 确保不超过屏幕宽度 */
   }
 }
+
