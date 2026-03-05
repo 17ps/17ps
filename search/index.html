@@ -32,11 +32,11 @@
 
 
         <div class="version-menu">
-            <a href="/categories/tutorial/" class="liquid-btn">教  程</a>
-            <a href="/categories/design/" class="liquid-btn">设  计</a> 
-            <a href="/categories/pic/" class="liquid-btn">素  材</a> 
-            <a href="/categories/software/" class="liquid-btn">软  件</a>
-            <a href="/about/v.html" class="liquid-btn" target="_blank">视  频</a>
+            <a href="/categories/tutorial/" class="liquid-btn">📚 教 程</a>
+            <a href="/categories/design/" class="liquid-btn">✍️ 设 计</a> 
+            <a href="/categories/pic/" class="liquid-btn">🎨 素 材</a> 
+            <a href="/categories/software/" class="liquid-btn">🛠️ 软 件</a>
+            <a href="/about/v.html" class="liquid-btn" target="_blank">▶️ 视 频</a>
         </div>
         </div>
 
@@ -103,7 +103,7 @@
 
 
 
-<!-- 17ps.ejs - 按分类分组显示文章（只显示最近100篇） -->
+<!-- 17ps.ejs - 按分类分组显示文章（只显示最近1000篇） -->
 
 
 
@@ -256,7 +256,7 @@
             opacity: 0.8;
         }
 
-        /* 卡片网格 */
+        /* 卡片网格 自动响应式的网格布局*/
         .link-grid {
             display: grid;
             width: 100%;
@@ -269,7 +269,7 @@
         .search-card {
             background: #F0F8FF;
             border-radius: 22px;
-            padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+            padding: 0;
             box-shadow: 0 10px 20px -8px rgba(0, 25, 60, 0.15);
             transition: all 0.25s ease;
             border: 2px solid rgba(255,255,255,0.7);
@@ -292,7 +292,7 @@
         /* 卡片头部 (图标+站点) */
         .card-header {
             display: flex;
-            text-align: center;
+            align-items: center;
             gap: 0.8rem;
         }
 
@@ -334,7 +334,7 @@
             background: #e0e7ff;
             color: #283b73;
             border-radius: 30px;
-            padding: 0.5rem 0.2rem;
+            padding: 0.5rem 0.25rem;
             text-align: center;
             font-size: 1.1rem;
             font-weight: 550;
@@ -365,7 +365,7 @@
         }
 
         .link-button:hover {
-            background: #e1e9ff;
+            background: #A3D5FF;
             border-color: #9db2e6;
         }
 
@@ -690,11 +690,9 @@ const linksData = [
             // 初始渲染
             renderLinks();
 
-            // 可选：点击卡片任何区域跳转(但为了保留按钮，我们可以加一点小细节)
-            // 或者不做额外跳转，保留按钮
         })();
     </script>
-    <!-- 确保即使JS未加载完成也显示优雅样式，但数据由JS填充，所以初始容器留空是合理的 -->
+
 
 
 

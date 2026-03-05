@@ -80,10 +80,10 @@
             margin-bottom: 0.2rem;
         }
 
-        /*  头部菜单 液体填充按钮样式  liquid-btn 结束 */ 
+        /*  头部菜单 液体填充按钮样式  liquid-btn */ 
         .liquid-btn {
             display: inline-block;
-            padding: 10px 30px;
+            padding: 8px 22px;
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -179,7 +179,7 @@
             height: 66px;
             background: #fff;
             border-radius: 16px;
-            padding: 0 22px 0 22px;
+            padding: 0 16px 0 16px;
             border: 1px dashed #dddddd;
             display: flex;
             flex-wrap: wrap;
