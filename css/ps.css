@@ -8,8 +8,8 @@
             background: linear-gradient(145deg, #f8f9ff 0%, #f1f3fd 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: center; 
             padding: 1.5rem;
             line-height: 1.5;
             color: #1e2b3c;
@@ -299,6 +299,7 @@
     color: #555;
     font-style: italic;
     line-height: 1;
+    text-align: center;
 }
 
 /* A标签 基础链接样式 */
@@ -330,7 +331,7 @@ a:hover {
         .imgboxup {transition: transform 0.2s ease; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);}
         .imgboxup:hover { transform: translateY(-11px); }
 
-
+/* ===== 分类与标签top样式 开始 ===== */
         .ps-c-tag-title {
             padding: 0px 22px 0px 0px;
             margin-top: 1px;
@@ -372,6 +373,66 @@ a:hover {
     border-color: #fff ;
     color: #fff;
 }
+/* ===== 分类与标签top样式 结束 ===== */
+
+/* ===== 分类与标签-上下页-样式 开始 ===== */
+        .ps-page-nav-u-d {
+            padding: 0px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .ps-page-nav {
+            width: 60%;
+            padding: 6px 16px;
+            margin-top: 1px;
+            border-radius: 66px 66px 0px 0px;
+            border-left: 6px solid #90CDF4;
+            border-bottom: 2px solid #90CDF4;
+            border-right: 6px solid #90CDF4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+.ps-page-number {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 1px 6px;
+    background: #90CDF4;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.3s;
+}
+.ps-page-middle {
+    display: inline-block;
+    margin: 0px 16px;
+    padding: 4px 20px;
+    border-radius: 20px;
+    border: 1px solid #90CDF4;
+    transition: all 0.3s;
+}
+.ps-page-up {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #D6EDFF;
+    border-radius: 66px 0px 0px 0px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+.ps-page-down {
+    display: inline-block;
+    padding: 6px 20px;
+    background: #D6EDFF;
+    border-radius: 0px 66px 0px 0px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+/* ===== 分类与标签-上下页-样式 结束 ===== */
 
 /* ===== 全局标签云样式 开始 ===== */
 
