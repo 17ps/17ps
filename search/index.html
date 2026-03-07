@@ -153,12 +153,12 @@
             justify-content: space-between;
             align-items: center;
             gap: 1rem 1.5rem;
-            margin-bottom: 2.8rem;
+            margin-bottom: 0.2rem;
             background: rgba(255,255,255,0.5);
             padding: 0.8rem 1.5rem;
             border-radius: 60px;
             backdrop-filter: blur(2px);
-            border: 1px solid rgba(255,255,255,0.9);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .filters {
@@ -170,7 +170,7 @@
         .filter-btn {
             background: transparent;
             border: none;
-            padding: 0.5rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 40px;
             font-size: 1rem;
             font-weight: 600;
@@ -235,27 +235,11 @@
             background: #4299E1;
         }
 
-        /* 统计 & 提示 */
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1.5rem;
-            color: #3c4a6e;
-        }
+  .search-box button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.3);
+  }
 
-        .stats .counter {
-            background: #dce3fd;
-            padding: 0.3rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .stats .hint {
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
 
         /* 卡片网格 自动响应式的网格布局*/
         .link-grid {
@@ -345,13 +329,23 @@
             white-space: nowrap;
         }
 
-        /* 描述文字 */
-        .post-desc {
-            color: #2f3f64;
-            font-size: 0.9rem;
-            margin: 0rem 0rem 0rem 0.5rem;
-            overflow: hidden;
-        }
+    /* 描述文字 */
+    .post-desc {
+    color: #2f3f64;
+    font-size: 0.9rem;
+    margin: 0rem 0rem 0rem 0.5rem;
+    height: 48px;           /* 限定高度48px */
+    overflow-y: auto;       /* 超出部分垂直滚动显示 */
+    padding-right: 0.3rem;
+    
+    /* 垂直居中关键样式 */
+    display: flex;
+    align-items: center;    /* 垂直居中 */
+    
+    /* Firefox 滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f1f5f9;
+}
 
         /* 链接按钮 */
         .link-button {
@@ -407,8 +401,57 @@
 
     </style>
 
+<style>
+  /* 修改所有 key category-btn 按钮的样式 */
+  .category-btn {
+    display: inline-flex;
+    margin-top: 5px;
+    margin-left: 8px;
+    align-items: center;
+    padding: 1px 12px;
+    background: #D6EDFF;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    color: #3182CE;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  }
+  
+  /* 鼠标悬停效果 */
+  .category-btn:hover {
+    background: #4299E1;
+    border-color: #90CDF4 ;
+    color: #fff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(3, 102, 214, 0.1);
+  }
+  
+  /* 点击效果 */
+  .category-btn:active {
+    background: #DD0A0A;
+    border-color: #DD0A0A ;
+    color: #fff;
+    transform: translateY(0);
+    box-shadow: 0 8px 15px rgba(3, 102, 214, 0.1);
+  }
+  
+  /* 按钮获得焦点时的样式 */
+  .category-btn:focus {
+    background: #DD0A0A;
+    border-color: #DD0A0A ;
+    color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.3);
+  }
 
-    <div class="links-container-none">
+</style>
+
+
+
+    <div class="links-container-none" id="top">
         <div style="text-align: center;margin-top: 1.5rem;">
 
 <span><a href="http://www.17ps.com"><img src="/images/pic/logo.png"></a></span><br/>
@@ -418,23 +461,98 @@
         <!-- 工具条：分类 + 搜索 -->
         <div class="tools-bar">
             <div class="filters" id="filterContainer">
-                <button class="filter-btn active" data-category="all">全 部</button>
                 <button class="filter-btn" data-category="教程">📚 教 程</button>
                 <button class="filter-btn" data-category="设计">✍️ 设 计</button>
                 <button class="filter-btn" data-category="素材">🎨 素 材</button>
                 <button class="filter-btn" data-category="软件">🛠️ 软 件</button>
+                <button class="filter-btn active" data-category="all">&nbsp;全 部&nbsp;</button>
             </div>
             <div class="search-box" id="searchBox">
-                <input type="text" placeholder="查找 标题 或 标签..." id="searchInput" aria-label="搜索 www.17ps.com">
-                <button id="searchBtn">查找</button>
+                <input type="text" placeholder="..." id="searchInput" aria-label="搜索 www.17ps.com">
+                <a href="/search/index.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M23 4v6h-6" stroke-linecap="round"/>
+  <path d="M1 20v-6h6" stroke-linecap="round"/>
+  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke-linecap="round"/>
+</svg>&nbsp;&nbsp;</a><button id="searchBtn">🔍 查找</button>
             </div>
         </div>
+            <div style="margin: 0px 33px;">
 
-        <!-- 统计与提示 -->
-        <div class="stats">
-            <span class="counter" id="linkCounter">加载中……</span>
-            <span class="hint">🌐 www.17ps.com</span>
-        </div>
+<div class="search-box-none" id="searchBox">
+    <div class="category-buttons">
+            
+            <button class="category-btn" data-category="" style="border: 1px solid #4299E1;border-radius: 6px;" title="">热搜词:</button>
+                
+                    <button class="category-btn" data-category="滤镜">滤镜</button>
+                
+                    <button class="category-btn" data-category="修图">修图</button>
+                
+                    <button class="category-btn" data-category="照片修复">照片修复</button>
+                
+                    <button class="category-btn" data-category="设计海报">设计海报</button>
+                
+                    <button class="category-btn" data-category="调色">调色</button>
+                
+            
+    </div>
+    <!-- 隐藏的搜索输入框，用于提交值 -->
+    <input type="hidden" id="searchInput" value="">
+    <button id="searchBtn" style="display: none;">查找</button>
+</div>
+
+            </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 获取按钮的文字作为搜索值
+            const category = this.getAttribute('data-category');
+            
+            // 设置隐藏输入框的值
+            searchInput.value = category;
+            
+            // 触发搜索
+            performSearch(category);
+        });
+    });
+    
+    function performSearch(query) {
+        // 这里实现你的搜索逻辑
+        console.log('搜索关键词:', query);
+        
+        // 示例：跳转到搜索页
+        // window.location.href = '/search?q=' + encodeURIComponent(query);
+        
+        // 或者触发自定义事件
+        const searchEvent = new CustomEvent('categorySearch', { 
+            detail: { category: query } 
+        });
+        document.dispatchEvent(searchEvent);
+        
+        // 如果需要模拟点击原来的搜索按钮
+        // searchBtn.click();
+    }
+});
+</script>
+
+            <div class="ps-c-tag-title" style="margin: 22px 16px 0px 16px;">
+                <div class="ps-c-tag-title-left"><div style="padding: 5px 8px 0px 8px;font-size: 1.2rem;">当前位置：</div>
+                    <div class="ps-c-tagss" >
+                        <span style="padding: 0px 8px 0px 8px; font-size: 1.2rem;">搜 索 🔍<span class="counter" id="linkCounter">加载中……</span></span>
+                    </div>
+                </div>
+
+            <div><a href="/">返回主页</a></div>
+
+            </div> 
+
+        <div class="ps-line"></div>
 
         <!-- 内容网格 -->
         <div class="link-grid" id="linkGrid">
@@ -445,7 +563,7 @@
 
     <script>
         (function() {
-            // ---------- 友情链接数据 ----------
+            // ---------- 数据 ----------
 const linksData = [
     
         
@@ -652,7 +770,7 @@ const linksData = [
                 });
 
                 // 更新计数
-                linkCounter.textContent = `🔍 ${filtered.length} 篇相关文章`;
+                linkCounter.textContent = `${filtered.length} 篇文章`;
 
                 // 如果过滤后无数据
                 if (filtered.length === 0) {
@@ -691,11 +809,6 @@ const linksData = [
     </script>
 
 
-
-
-
-
-
     </main>
         </div>
         <div class="ps-line-footer"></div>
@@ -715,6 +828,48 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+
+
+
+  
+<!-- 回到顶部按钮 -->
+<button id="backToTop" class="btn btn-primary rounded-circle position-fixed" 
+        style="bottom: 66px; right: 66px; display: none; width: 50px; height: 50px; padding: 4px; background-color: #3182CE; color: #fff;border: 3px solid #fff;">
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-capslock" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.27 1.047a1 1 0 0 1 1.46 0l6.345 6.77c.6.638.146 1.683-.73 1.683H11.5v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1H1.654C.78 9.5.326 8.455.924 7.816L7.27 1.047zM14.346 8.5 8 1.731 1.654 8.5H4.5a1 1 0 0 1 1 1v1h5v-1a1 1 0 0 1 1-1h2.846zm-9.846 5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1zm6 0h-5v1h5v-1z"/></svg>
+
+</button>
+
+<!-- JavaScript -->
+<script>
+// 回到顶部功能
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+    
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// 页面加载时间统计（可选）
+window.addEventListener('load', function() {
+    const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    console.log('页面加载时间: ' + loadTime + 'ms');
+});
+</script>
+
 
 </body>
 </html>
