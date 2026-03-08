@@ -6,7 +6,11 @@
 
 .ps img {
     border-radius:10px;
-    }
+    max-width: 100%;   /* 确保图片不超出父容器 */
+    height: auto;      /* 保持原始宽高比 */
+    display: block;    /* 去除图片底部的空隙 */
+    margin: 0 auto;    /* 水平居中（如果需要） */
+}
 
 .ps-abc {
     margin: 0px;
