@@ -62,7 +62,12 @@
                 
                     <a href="/tags/%E6%BB%A4%E9%95%9C/" class="ps-tags">
                         滤镜
-                        <span class="ps-tags-count">3</span>
+                        <span class="ps-tags-count">4</span>
+                    </a>
+                
+                    <a href="/tags/%E8%B0%83%E8%89%B2/" class="ps-tags">
+                        调色
+                        <span class="ps-tags-count">2</span>
                     </a>
                 
                     <a href="/tags/%E4%BF%AE%E5%9B%BE/" class="ps-tags">
@@ -80,8 +85,8 @@
                         <span class="ps-tags-count">1</span>
                     </a>
                 
-                    <a href="/tags/%E8%B0%83%E8%89%B2/" class="ps-tags">
-                        调色
+                    <a href="/tags/%E6%B8%90%E5%8F%98%E6%98%A0%E5%B0%84/" class="ps-tags">
+                        渐变映射
                         <span class="ps-tags-count">1</span>
                     </a>
                 
@@ -486,13 +491,15 @@
                 
                     <button class="category-btn" data-category="滤镜">滤镜</button>
                 
+                    <button class="category-btn" data-category="调色">调色</button>
+                
                     <button class="category-btn" data-category="修图">修图</button>
                 
                     <button class="category-btn" data-category="照片修复">照片修复</button>
                 
                     <button class="category-btn" data-category="设计海报">设计海报</button>
                 
-                    <button class="category-btn" data-category="调色">调色</button>
+                    <button class="category-btn" data-category="渐变映射">渐变映射</button>
                 
             
     </div>
@@ -544,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="ps-c-tag-title" style="margin: 22px 16px 0px 16px;">
                 <div class="ps-c-tag-title-left"><div style="padding: 5px 8px 0px 8px;font-size: 1.2rem;">当前位置：</div>
                     <div class="ps-c-tagss" >
-                        <span style="padding: 0px 8px 0px 8px; font-size: 1.2rem;">搜 索 🔍<span class="counter" id="linkCounter">加载中……</span></span>
+                        <span style="padding: 0px 8px 0px 8px; font-size: 1.2rem;">搜 索 <span class="counter" id="linkCounter">加载中……</span>🔍</span>
                     </div>
                 </div>
 
@@ -573,6 +580,14 @@ const linksData = [
                 name: "从零开始：Photoshop自学完全指南",
                 url: "/tutorial/ps01001.html",
                 desc: "设计海报---学习Photoshop是一个充满乐趣和成就感的过程。它可能初看复杂，但只要你掌握了正确的方法，从核心概念入手，通过案例不断实践，并善用丰富的学习资源，就一定能打开创意表达的大门。"
+            },
+        
+            {
+                category: "教程",
+                icon:  "📚",
+                name: "调色教程：渐变映射调出金黄色玫瑰花",
+                url: "/tutorial/ps01002.html",
+                desc: "滤镜, 调色, 渐变映射---用“渐变映射”调整图层，将普通玫瑰花照片快速转变为金黄色的后期技巧。教程将演示如何通过设置特定的黑金渐变颜色，精准控制高光与阴影的色彩，从而在不破坏花瓣纹理细节的情况下，营造出璀璨、高级的金属质感效果。"
             },
         
             {
@@ -680,17 +695,17 @@ const linksData = [
             {
                 category: "素材",
                 icon:  "🎨",
-                name: "电商主图-60216",
-                url: "/pic/ps00011.html",
-                desc: "电商主图---电商主图-60216"
+                name: "电商主图-60119",
+                url: "/pic/ps00014.html",
+                desc: "电商主图---电商主图-60119"
             },
         
             {
                 category: "素材",
                 icon:  "🎨",
-                name: "电商主图-60119",
-                url: "/pic/ps00014.html",
-                desc: "电商主图---电商主图-60119"
+                name: "电商主图-60216",
+                url: "/pic/ps00011.html",
+                desc: "电商主图---电商主图-60216"
             },
         
             {
@@ -770,7 +785,7 @@ const linksData = [
                 });
 
                 // 更新计数
-                linkCounter.textContent = `${filtered.length} 篇文章`;
+                linkCounter.textContent = `${filtered.length}`;
 
                 // 如果过滤后无数据
                 if (filtered.length === 0) {
