@@ -16,12 +16,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <body>
     <div class="card"> 
-    <div class="headercss">
         <div class="subhead">
             <span><small>你用Ps, 我也用Ps, 我们一起PS.</small></span>
+            <span><a href="/">www.17ps.com</a></span>
             <span style="font-weight: 600; font-size: 1.2rem;">《一起PS》Photoshop.</span>
         </div> 
         <!-- 标志性蓝色条纹 --><div class="ps-stripe"></div>
+    <div class="headercss">
        <header>
         <!-- 简短介绍 + 图标 -->
         <div class="hero-grid">
@@ -65,6 +66,11 @@
                         <span class="ps-tags-count">4</span>
                     </a>
                 
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%B5%B7%E6%8A%A5/" class="ps-tags">
+                        设计海报
+                        <span class="ps-tags-count">2</span>
+                    </a>
+                
                     <a href="/tags/%E8%B0%83%E8%89%B2/" class="ps-tags">
                         调色
                         <span class="ps-tags-count">2</span>
@@ -77,11 +83,6 @@
                 
                     <a href="/tags/%E7%85%A7%E7%89%87%E4%BF%AE%E5%A4%8D/" class="ps-tags">
                         照片修复
-                        <span class="ps-tags-count">1</span>
-                    </a>
-                
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%B5%B7%E6%8A%A5/" class="ps-tags">
-                        设计海报
                         <span class="ps-tags-count">1</span>
                     </a>
                 
@@ -123,7 +124,7 @@
         body {
             background: linear-gradient(145deg, #f9faff 0%, #f0f3fd 100%);
             min-height: 100vh;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem;
             display: flex;
         }
 
@@ -153,23 +154,19 @@
 
         /* 分类标签 + 搜索栏 (flex 响应式) */
         .tools-bar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem 1.5rem;
-            margin-bottom: 0.2rem;
+            height: 128px;
+            gap: 0.5rem 0.5rem;
             background: rgba(255,255,255,0.5);
-            padding: 0.8rem 1.5rem;
-            border-radius: 60px;
+            padding: 5px 5px;
+            border-radius: 16px 16px 16px 16px;
             backdrop-filter: blur(2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 6px 6px rgba(66, 66, 66, 0.2);
         }
 
         .filters {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 1rem;
         }
 
         .filter-btn {
@@ -202,7 +199,7 @@
             align-items: center;
             background: white;
             border-radius: 40px;
-            padding: 0.2rem 0.2rem 0.2rem 1.2rem;
+            padding: 0.2rem 0.2rem 0.2rem 0.2rem;
             box-shadow: 0 4px 12px rgba(0, 20, 40, 0.08);
             border: 1px solid #d9e0f0;
         }
@@ -212,7 +209,7 @@
             outline: none;
             font-size: 1rem;
             padding: 0.6rem 0.2rem;
-            width: 200px;
+            width: 500px;
             background: transparent;
             color: #17212e;
         }
@@ -248,11 +245,17 @@
 
         /* 卡片网格 自动响应式的网格布局*/
         .link-grid {
-            display: grid;
             width: 100%;
-            /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
-            gap: 1rem;
-            margin-bottom: 2rem;
+            /*display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); */
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+    height: 433px;           /* 限定高度48px */
+    overflow-y: auto;       /* 超出部分垂直滚动显示 */
+    display: block;
+    /* Firefox 滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f1f5f9;
         }
 
         /* 卡片 */
@@ -260,6 +263,8 @@
             background: #F0F8FF;
             border-radius: 22px;
             padding: 0;
+            margin-top: 6px;
+            margin-bottom: 6px;
             text-align: center;
             box-shadow: 0 10px 20px -8px rgba(0, 25, 60, 0.15);
             transition: all 0.25s ease;
@@ -304,6 +309,9 @@
             transition: 0.2s;
         }
 
+        .post-icon:hover {
+            border: 2px solid #4299E1;
+        }
         .search-card:hover .post-icon {
             background: #dbe3ff;
         }
@@ -348,7 +356,7 @@
     align-items: center;    /* 垂直居中 */
     
     /* Firefox 滚动条样式 */
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scrollbar-color: #cbd5e0 #f1f5f9;
 }
 
@@ -396,6 +404,7 @@
         .no-result {
             grid-column: 1 / -1;
             text-align: center;
+            margin: 22px;
             padding: 4rem 0;
             color: #5d6f99;
             background: #f3f6ffc0;
@@ -410,18 +419,17 @@
   /* 修改所有 key category-btn 按钮的样式 */
   .category-btn {
     display: inline-flex;
-    margin-top: 5px;
-    margin-left: 8px;
+    margin: 2px 2px;
     align-items: center;
-    padding: 1px 12px;
+    padding: 0.5px 5px;
     background: #D6EDFF;
     border: 1px solid #dddddd;
     border-radius: 8px;
     color: #3182CE;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
   }
   
@@ -456,40 +464,232 @@
 
 
 
-    <div class="links-container-none" id="top">
-        <div style="text-align: center;margin-top: 1.5rem;">
+<div class="links-container-none" id="top">
+<div class="ps-ss" style="text-align: center; margin-top: 1rem;">
+<!--www.17ps.com - Photoshop-->
 
-<span><a href="http://www.17ps.com"><img src="/images/pic/logo.png"></a></span><br/>
-            <div class="ssubhead">· 你用Ps, 我也用Ps, 我们一起PS. ·</div>
-        </div>
+<style>
 
-        <!-- 工具条：分类 + 搜索 -->
-        <div class="tools-bar">
-            <div class="filters" id="filterContainer">
+.container {
+    background: white;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: 0 6px 6px rgba(66, 66, 66, 0.2);
+    align-items: center;
+    width: 330px;
+    height: 260px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.image-container {
+    min-height: 222px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    border-radius: 10px;
+    padding: 2px;
+    transition: 0.3s;
+}
+
+.image-container.has-image {
+    background: #fff;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 222px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease;
+}
+
+.placeholder-text {
+    color: #999;
+    font-size: 18px;
+}
+
+.placeholder-text i {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.image-info {
+    text-align: center;
+    color: #2B6CB0;
+    font-size: 1rem;
+    display: none;
+}
+
+.image-info.show {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.imgs-button {
+    background: none;
+    border: none;
+    }
+    
+.ps-ss {
+    margin: 0px 24px 0px 0px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+}
+</style>
+    <div class="container"> 
+        <div class="image-container" id="imageContainer">
+            <div class="placeholder-text">
+
+                <a href="/"><img src="/images/pic/logo.png" width="260px" style="padding: 10px;"></a>
+
+            </div>
+        </div> 
+
+        <div class="image-info" id="imageInfo">
+            www.17ps.com
+        </div>    
+    </div>
+
+<script>
+const imageContainer = document.getElementById('imageContainer');
+const imageInfo = document.getElementById('imageInfo');
+
+
+function showImage(button) {
+    var imagePath = button.getAttribute('data-imgcover');
+    var title = button.getAttribute('data-title');
+    var ps_url = button.getAttribute('data-url');
+    
+    // 清除现有内容
+    imageContainer.innerHTML = '';
+    
+    // 创建链接元素
+    const link = document.createElement('a');
+    link.href = ps_url;  // 设置链接地址
+    link.target = '_blank';  // 可选：在新标签页打开
+    
+    // 创建图片元素
+    const img = document.createElement('img');
+    img.src = imagePath;
+    img.alt = title;  // 添加alt属性有利于SEO和无障碍访问
+    
+    // 把图片放进链接里
+    link.appendChild(img);
+    
+    // 把链接添加到容器
+    imageContainer.appendChild(link);
+    imageContainer.classList.add('has-image');
+
+    // 显示图片信息
+    imageInfo.textContent = title;
+    imageInfo.classList.add('show');
+}
+
+</script>
+
+
+<!--www.17ps.com - Photoshop-->
+
+<div style="width: 60%; text-align: center;"> <!-- 工具条：分类 + 搜索 -->
+
+            <div class="filters" style="width: 100%; margin-left: 18px;" id="filterContainer">
                 <button class="filter-btn" data-category="教程">📚 教 程</button>
                 <button class="filter-btn" data-category="设计">✍️ 设 计</button>
                 <button class="filter-btn" data-category="素材">🎨 素 材</button>
                 <button class="filter-btn" data-category="软件">🛠️ 软 件</button>
                 <button class="filter-btn active" data-category="all">&nbsp;全 部&nbsp;</button>
             </div>
-            <div class="search-box" id="searchBox">
-                <input type="text" placeholder="..." id="searchInput" aria-label="搜索 www.17ps.com">
-                <a href="/search/index.html">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <path d="M23 4v6h-6" stroke-linecap="round"/>
-  <path d="M1 20v-6h6" stroke-linecap="round"/>
-  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke-linecap="round"/>
-</svg>&nbsp;&nbsp;</a><button id="searchBtn">🔍 查找</button>
-            </div>
-        </div>
-            <div style="margin: 0px 33px;">
 
-<div class="search-box-none" id="searchBox">
-    <div class="category-buttons">
+            <div class="search-box" style="margin: 16px auto; width: 98%; justify-content: space-between;" id="searchBox" >
+                <input style="width: 333px; padding-left: 28px;" type="text" placeholder="Ps 实用技巧..." id="searchInput" aria-label="搜索 www.17ps.com">
+              <span><a href="/search/index.html">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6" stroke-linecap="round"/>
+              <path d="M1 20v-6h6" stroke-linecap="round"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke-linecap="round"/>
+              </svg>&nbsp;&nbsp;</a><button id="searchBtn"><span style="padding: 1px 22px; font-size: 1rem;">查 找 🔍</span></button></span>
+            </div>
+
+    <div class="tools-bar">
+    
+<div class="search-box-none" style="align-items: flex-start; text-align: left;" id="searchBox">
             
-            <button class="category-btn" data-category="" style="border: 1px solid #4299E1;border-radius: 6px;" title="">热搜词:</button>
+            <button class="category-btn" data-category="" style="border: 1px solid #4299E1; color: #4299E1; background: none; border-radius: 6px;" title="">常用：热搜词</button>
                 
                     <button class="category-btn" data-category="滤镜">滤镜</button>
+                
+                    <button class="category-btn" data-category="设计海报">设计海报</button>
                 
                     <button class="category-btn" data-category="调色">调色</button>
                 
@@ -497,18 +697,36 @@
                 
                     <button class="category-btn" data-category="照片修复">照片修复</button>
                 
-                    <button class="category-btn" data-category="设计海报">设计海报</button>
-                
                     <button class="category-btn" data-category="渐变映射">渐变映射</button>
                 
             
-    </div>
-    <!-- 隐藏的搜索输入框，用于提交值 -->
+    <!-- 隐藏的搜索输入框，用于提交值 预选关键词-->
     <input type="hidden" id="searchInput" value="">
     <button id="searchBtn" style="display: none;">查找</button>
 </div>
+    
 
-            </div>
+    </div>
+
+</div>
+
+</div>
+
+        <!-- 工具条：分类 + 搜索 -->
+            <div class="ps-c-tag-title" style="margin: 22px 16px 0px 16px; padding-right: 0px;">
+                <div class="ps-c-tag-title-left"><div style="padding: 5px 8px 0px 8px;font-size: 1.2rem;">搜 索：</div>
+                    <div class="ps-c-tagss" >
+                        <span style="padding: 0px 8px 0px 8px; font-size: 1.2rem; font-style: italic;"><span class="counter" id="linkCounter">加载中……</span>Ps</span>
+                    </div>
+                </div>
+
+
+
+
+
+            </div> 
+
+        <div class="ps-line" style="margin-bottom: 0px;"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -548,19 +766,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-            <div class="ps-c-tag-title" style="margin: 22px 16px 0px 16px;">
-                <div class="ps-c-tag-title-left"><div style="padding: 5px 8px 0px 8px;font-size: 1.2rem;">当前位置：</div>
-                    <div class="ps-c-tagss" >
-                        <span style="padding: 0px 8px 0px 8px; font-size: 1.2rem;">搜 索 <span class="counter" id="linkCounter">加载中……</span>🔍</span>
-                    </div>
-                </div>
-
-            <div><a href="/">返回主页</a></div>
-
-            </div> 
-
-        <div class="ps-line"></div>
-
         <!-- 内容网格 -->
         <div class="link-grid" id="linkGrid">
             <!-- 动态由JS生成卡片 -->
@@ -578,6 +783,7 @@ const linksData = [
                 category: "教程",
                 icon:  "📚",
                 name: "从零开始：Photoshop自学完全指南",
+                imgcover: "/images/pic/null.jpg ",
                 url: "/tutorial/ps01001.html",
                 desc: "设计海报---学习Photoshop是一个充满乐趣和成就感的过程。它可能初看复杂，但只要你掌握了正确的方法，从核心概念入手，通过案例不断实践，并善用丰富的学习资源，就一定能打开创意表达的大门。"
             },
@@ -586,6 +792,7 @@ const linksData = [
                 category: "教程",
                 icon:  "📚",
                 name: "调色教程：渐变映射调出金黄色玫瑰花",
+                imgcover: "/images/ps/ps01002/ps01002.jpg",
                 url: "/tutorial/ps01002.html",
                 desc: "滤镜, 调色, 渐变映射---用“渐变映射”调整图层，将普通玫瑰花照片快速转变为金黄色的后期技巧。教程将演示如何通过设置特定的黑金渐变颜色，精准控制高光与阴影的色彩，从而在不破坏花瓣纹理细节的情况下，营造出璀璨、高级的金属质感效果。"
             },
@@ -594,6 +801,7 @@ const linksData = [
                 category: "教程",
                 icon:  "📚",
                 name: "电商主图-60046",
+                imgcover: "/images/ps/ps00003/ps00003.jpg",
                 url: "/tutorial/ps00003.html",
                 desc: "滤镜, 照片修复, 电商主图---电商主图-60046"
             },
@@ -602,6 +810,7 @@ const linksData = [
                 category: "教程",
                 icon:  "📚",
                 name: "17ps",
+                imgcover: "/images/pic/null.jpg ",
                 url: "/tutorial/ps.html",
                 desc: "---17ps"
             },
@@ -612,6 +821,7 @@ const linksData = [
                 category: "软件",
                 icon:  "🛠️",
                 name: "电商主图-60011",
+                imgcover: "/images/ps/ps00004/ps00004.jpg",
                 url: "/software/ps00004.html",
                 desc: "滤镜, 电商主图---电商主图-60011"
             },
@@ -621,9 +831,10 @@ const linksData = [
             {
                 category: "设计",
                 icon:  "✍️",
-                name: "电商主图-60058电商主图-60058电商主图-60058电商主图-60058",
+                name: "电商主图-60058电商主图-60058",
+                imgcover: "/images/ps/ps00002/ps00002.jpg",
                 url: "/design/ps00002.html",
-                desc: "电商主图---电商主图-60058"
+                desc: "电商主图, 设计海报---电商主图-60058"
             },
         
     
@@ -632,6 +843,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60048",
+                imgcover: "/images/ps/ps00001/ps00001.jpg",
                 url: "/pic/ps00001.html",
                 desc: "修图, 滤镜, 电商主图, 调色---电商主图-60048"
             },
@@ -640,6 +852,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60028",
+                imgcover: "/images/ps/ps00006/ps00006.jpg",
                 url: "/pic/ps00006.html",
                 desc: "电商主图---电商主图60028"
             },
@@ -648,6 +861,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60015",
+                imgcover: "/images/ps/ps00005/ps00005.jpg",
                 url: "/pic/ps00005.html",
                 desc: "电商主图---电商主图-60015"
             },
@@ -656,6 +870,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60741",
+                imgcover: "/images/ps/ps00007/ps00007.jpg",
                 url: "/pic/ps00007.html",
                 desc: "电商主图---电商主图-60741"
             },
@@ -664,6 +879,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60019",
+                imgcover: "/images/ps/ps00008/ps00008.jpg",
                 url: "/pic/ps00008.html",
                 desc: "电商主图---电商主图-60019"
             },
@@ -672,6 +888,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60252",
+                imgcover: "/images/ps/ps00010/ps00010.jpg",
                 url: "/pic/ps00010.html",
                 desc: "电商主图---电商主图-60252"
             },
@@ -680,6 +897,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60032",
+                imgcover: "/images/ps/ps00009/ps00009.jpg",
                 url: "/pic/ps00009.html",
                 desc: "电商主图---电商主图-60032"
             },
@@ -688,6 +906,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60181",
+                imgcover: "/images/ps/ps00012/ps00012.jpg",
                 url: "/pic/ps00012.html",
                 desc: "电商主图---电商主图-60181"
             },
@@ -696,6 +915,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60119",
+                imgcover: "/images/ps/ps00014/ps00014.jpg",
                 url: "/pic/ps00014.html",
                 desc: "电商主图---电商主图-60119"
             },
@@ -704,6 +924,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60216",
+                imgcover: "/images/ps/ps00011/ps00011.jpg",
                 url: "/pic/ps00011.html",
                 desc: "电商主图---电商主图-60216"
             },
@@ -712,6 +933,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60121",
+                imgcover: "/images/ps/ps00013/ps00013.jpg",
                 url: "/pic/ps00013.html",
                 desc: "电商主图---电商主图-60121"
             },
@@ -720,6 +942,7 @@ const linksData = [
                 category: "素材",
                 icon:  "🎨",
                 name: "电商主图-60051",
+                imgcover: "/images/ps/ps00015/ps00015.jpg",
                 url: "/pic/ps00015.html",
                 desc: "电商主图---电商主图-60051"
             },
@@ -801,15 +1024,19 @@ const linksData = [
                     
                     cardsHTML += `
                         <div class="search-card" data-category="${link.category}">
-                            <div class="card-header">
-                                <div class="post-icon">${iconChar}</div>
+                            <button class="imgs-button" data-title="${link.name}" data-url="${link.url}" data-imgcover="${link.imgcover}" onclick="showImage(this)">
+                            <div class="card-header" style="padding: 5px 12px; margin: 0px;display: flex; gap: 1rem;justify-content: space-between;">
+                            <div style="padding: 1px; margin: 0px;display: flex; gap: 1rem;justify-content: space-between;">
                                 <div class="post-category">${link.category}</div>
                                 <div class="link-button">
                                   <a href="${link.url}" target="_blank" rel="noopener noreferrer"><div class="post-name">${link.name}</div></a>
                                   <span class="visit-arrow">↗</span>
                                 </div>
-                            <div class="post-desc">${link.desc}</div>
+                                <div class="post-desc">${link.desc}</div>
                             </div>
+                                <div class="post-icon">${iconChar}</div>
+                            </div>
+                            </button>
                         </div>
                     `;
                 });
