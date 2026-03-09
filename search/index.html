@@ -101,6 +101,10 @@
         <div class="mainps">
     <main>
         <style>
+        body {
+            height: 100vh;
+        }
+
   .headercss  { display: none; }
 </style>
 
@@ -120,26 +124,6 @@
             box-sizing: border-box;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
         }
-
-        body {
-            background: linear-gradient(145deg, #f9faff 0%, #f0f3fd 100%);
-            min-height: 100vh;
-            padding: 1.5rem;
-            display: flex;
-        }
-
-        /* 主卡片容器 */
-        .links-container {
-            max-width: 1300px;
-            width: 100%;
-            background: rgba(255,255,255,0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 3rem 3rem 2rem 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 20, 60, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
-            padding: 2.5rem 2rem;
-            border: 1px solid rgba(255,255,255,0.7);
-        }
-
 
         .ssubhead {
             color: #4a5a7a;
@@ -244,19 +228,22 @@
 
 
         /* 卡片网格 自动响应式的网格布局*/
-        .link-grid {
-            width: 100%;
-            /*display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); */
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-    height: 433px;           /* 限定高度48px */
-    overflow-y: auto;       /* 超出部分垂直滚动显示 */
+.link-grid {
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    min-height: 360px;
+    height: 100%;
+    /*max-height: 100%;        使用max-height代替height */
+    overflow-y: auto;       
     display: block;
+    box-sizing: border-box;
+    
     /* Firefox 滚动条样式 */
     scrollbar-width: thin;
     scrollbar-color: #cbd5e0 #f1f5f9;
-        }
+}
+
 
         /* 卡片 */
         .search-card {
@@ -266,9 +253,8 @@
             margin-top: 6px;
             margin-bottom: 6px;
             text-align: center;
-            box-shadow: 0 10px 20px -8px rgba(0, 25, 60, 0.15);
             transition: all 0.25s ease;
-            border: 2px solid rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.7);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -279,10 +265,10 @@
         }
 
         .search-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
+            box-shadow: 5px 20px 20px -20px #aaa;
             background: #D4EAFF;
-            box-shadow: 0 28px 36px -16px #1e2b5e40;
-            border-color: #ffffff;
+            border-color: #4299E1;
         }
 
         /* 卡片头部 (图标+站点) */
@@ -462,9 +448,6 @@
 
 </style>
 
-
-
-<div class="links-container-none" id="top">
 <div class="ps-ss" style="text-align: center; margin-top: 1rem;">
 <!--www.17ps.com - Photoshop-->
 
@@ -597,7 +580,7 @@ h1 {
     background: none;
     border: none;
     }
-    
+
 .ps-ss {
     margin: 0px 24px 0px 0px;
     font-size: 1.2rem;
@@ -606,6 +589,14 @@ h1 {
     text-align: center;
     justify-content: space-between;
 }
+
+        .ps_line {
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(90deg, #b2dfff 0%, #2E9EFF 30%, #ffae00 50%, #1E6EB5 70%, #b2dfff 100%);
+            border-radius: 4px;  
+            margin: 0.36rem 0rem 1.2rem 0rem;
+        }
 </style>
     <div class="container"> 
         <div class="image-container" id="imageContainer">
@@ -712,6 +703,7 @@ function showImage(button) {
 
 </div>
 
+
         <!-- 工具条：分类 + 搜索 -->
             <div class="ps-c-tag-title" style="margin: 22px 16px 0px 16px; padding-right: 0px;">
                 <div class="ps-c-tag-title-left"><div style="padding: 5px 8px 0px 8px;font-size: 1.2rem;">搜 索：</div>
@@ -720,13 +712,9 @@ function showImage(button) {
                     </div>
                 </div>
 
-
-
-
-
             </div> 
 
-        <div class="ps-line" style="margin-bottom: 0px;"></div>
+<div class="ps_line" style="margin-bottom: 0px;" id="ps_line"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -770,8 +758,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="link-grid" id="linkGrid">
             <!-- 动态由JS生成卡片 -->
         </div>
-
-    </div>
 
     <script>
         (function() {
