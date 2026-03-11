@@ -4,12 +4,12 @@
     text-align: center;
 }
 
-.ps img {
+.ps_pic_grid img {
     border-radius:10px;
-    max-width: 100%;   /* 确保图片不超出父容器 */
-    height: auto;      /* 保持原始宽高比 */
-    display: block;    /* 去除图片底部的空隙 */
-    margin: 0 auto;    /* 水平居中（如果需要） */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
 }
 
 .ps-abc {
@@ -54,5 +54,6 @@
     border-radius:10px;
     border: 1px solid #dddddd;
     width: 49%;
+    margin: 0 auto;
     }
 
