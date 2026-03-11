@@ -290,13 +290,13 @@ var _hmt = _hmt || [];
             bottom: 33px;
             left: 50%;
             transform: translateX(-50%);
-            width: 88%;
-            padding: 0.8rem 2rem;
+            width: 95%;
+            padding: 0.8rem 1rem;
             backdrop-filter: blur(8px);
             border-radius: 18px;
             color: #fcc066;
             background: #0a0a0e80;
-            font-size: clamp(3rem, 7vw, 5rem);
+            font-size: 4rem;
             border: 1px solid rgba(255,200,120,0.3);
             word-break: break-word;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
@@ -304,6 +304,17 @@ var _hmt = _hmt || [];
             line-height: 1.4;
             pointer-events: none;  /* 让文字不阻挡点击 */
         }
+
+        /* 导航按钮 */
+        .ps_pic_nav {
+            top: 72%;
+            transform: translateY(-50%);
+            width: min(200px, 25vw);
+            height: min(200px, 25vw);
+            border-radius: 50%;
+            font-size: min(5rem, 15vw);
+        }
+
 }
 
         /* 计数器 - 固定在顶部中间 */
@@ -368,12 +379,12 @@ var _hmt = _hmt || [];
 
         /* 关闭按钮 */
         .ps_pic_close {
-            top: max(20px, 2vh);
-            right: max(20px, 2vw);
-            width: min(60px, 12vw);
-            height: min(60px, 12vw);
+            top: max(50px, 10vh);
+            right: max(50px, 10vw);
+            width: min(100px, 15vw);
+            height: min(100px, 15vw);
             border-radius: 50%;
-            font-size: min(2.2rem, 8vw);
+            font-size: min(5rem, 10vw);
         }
 
         .ps_pic_close:hover {
